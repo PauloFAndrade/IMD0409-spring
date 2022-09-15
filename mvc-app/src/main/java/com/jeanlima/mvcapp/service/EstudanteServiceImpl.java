@@ -27,9 +27,7 @@ public class EstudanteServiceImpl implements EstudanteService{
 
     @Override
     public void deletarEstudante(Estudante estudante) {
-        
         this.estudantes.remove(estudante);
-        
     }
 
     @Override
@@ -46,6 +44,5 @@ public class EstudanteServiceImpl implements EstudanteService{
     public List<Estudante> getListaEstudante() {
         return this.estudantes;
     }
-
     
 }

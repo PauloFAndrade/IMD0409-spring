@@ -16,8 +16,8 @@
     <p>Lista de estudantes cadastrados: </p>
     <ul>
         <li th:each="estudante : ${estudantes}">
-            <span
-                th:text="${estudante.primeiroNome} +' '+ ${estudante.ultimoNome} + ' - Curso:  ' + ${estudante.curso} " />
+            <span th:text="${estudante.primeiroNome} +' '+ ${estudante.ultimoNome} + ' - Curso:  ' + ${estudante.curso} " />
+            <a href="deleteEstudante/${estudante.id}">Deletar Estudante</a>
         </li>
     </ul>
     <br><br>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jeanlima.mvcapp.model.Estudante;
@@ -23,7 +24,6 @@ public class EstudanteController {
 
     @RequestMapping("/showForm")
     public String showFormEstudante(Model model){
-
         model.addAttribute("estudante", new Estudante());
         return "estudante/formEstudante";
     }
@@ -45,6 +45,11 @@ public class EstudanteController {
 
     }
 
-    
+    @RequestMapping(value = "/deleteEstudante/{id}")
+    public String deleteEstudante(@PathVariable int id){
+        Estudante estudante = estudanteService.getEstudanteById(id);
+        estudanteService.deletarEstudante(estudante);
+        return "redirect:/estudante/listaEstudantes";
+    }
     
 }
